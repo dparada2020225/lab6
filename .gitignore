@@ -1,0 +1,60 @@
+# Archivos compilados
+bin/
+*.o
+*.so
+*.a
+
+# Archivos de resultados y datos
+data/
+results/
+*.log
+*.csv
+
+# Archivos temporales
+*.tmp
+*.temp
+*~
+.*.swp
+.*.swo
+
+# Archivos de debug
+*.dSYM/
+core
+vgcore.*
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-*
+.clangd/
+compile_commands.json
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Archivos específicos del laboratorio
+*.tsan
+*.asan
+
+# Archivos generados por Valgrind
+vgcore.*
+massif.out.*
+cachegrind.out.*
+callgrind.out.*
