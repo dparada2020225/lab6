@@ -339,72 +339,61 @@ g++ -pthread src/programa.cpp -o bin/programa
 # 3. Usar herramientas de profiling
 ```
 
-## Entregables
+## Comandos
 
-### Código Fuente (src/)
-- ✅ Programas C++ completos y comentados
-- ✅ Compilación sin warnings
-- ✅ Manejo de errores robusto
-- ✅ Headers con información del autor
+1. Preparación y Compilación Inicial
+```bash 
+# Hacer scripts ejecutables
+# chmod +x scripts/*.sh *.sh
+```
 
-### Documentación (docs/)
-- 📄 **PDF explicativo** (máx. 8 páginas total)
-  - Diseño y decisiones por práctica
-  - Justificación de sincronización
-  - Análisis de resultados y gráficas
-  - Post mortems de fallos encontrados
-- 🎥 **Video demostrativo** (≤ 6 minutos)
-  - Ejecución de cada práctica
-  - Respuestas a preguntas guía
-  - Justificación de decisiones de diseño
+# Verificación rápida inicial
+./verify_lab.sh
+2. Compilación con Sanitizers (para detectar problemas)
+bash# Compilar con ThreadSanitizer
+make tsan
 
-### Benchmarks (results/)
-- 📊 **Scripts y CSV** con resultados reproducibles
-- 📈 **Gráficas** de comparación de rendimiento
-- 🔧 **Comandos exactos** utilizados para benchmarks
+# Probar con ThreadSanitizer (buscar race conditions)
+./bin/p1_counter_tsan 2 10000 1
+3. Pruebas Funcionales por Práctica
+bash# PRÁCTICA 1: Counter Race Conditions
+echo "=== P1: COUNTER ==="
+./bin/p1_counter 4 100000 1
 
-## Rúbrica de Evaluación (100 pts)
+# PRÁCTICA 2: Buffer Circular
+echo "=== P2: RING BUFFER ==="
+./bin/p2_ring 2 2 50000
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Correctitud** | 30 | Ausencia de data races y deadlocks, funcionamiento correcto |
-| **Métricas y Análisis** | 25 | Tablas, gráficas, reproducibilidad, interpretación |
-| **Diseño y Rendimiento** | 20 | Elección apropiada de primitivas de sincronización |
-| **Calidad del Código** | 15 | Comentarios, modularidad, manejo de errores, estilo |
-| **Documentación** | 10 | Claridad y profesionalismo del PDF y video |
+# PRÁCTICA 3: Lectores/Escritores  
+echo "=== P3: READERS/WRITERS ==="
+./bin/p3_rw 4 10000
 
-**Nota:** El video se utiliza como principal fuente de validación.
+# PRÁCTICA 4: Deadlock (solo soluciones seguras)
+echo "=== P4: DEADLOCK SOLUTIONS ==="
+./bin/p4_deadlock 2  # Orden total
+./bin/p4_deadlock 3  # Trylock
 
-## Consejos y Mejores Prácticas
+# PRÁCTICA 5: Pipeline
+echo "=== P5: PIPELINE ==="
+./bin/p5_pipeline
+4. Ejecución Completa Automatizada
+bash# Ejecutar todas las prácticas
+./scripts/run_all.sh
+5. Benchmarks Automatizados
+bash# Ejecutar benchmarks (esto toma varios minutos)
+./scripts/benchmark.sh
+6. Análisis de Resultados
+bash# Ver qué archivos se generaron
+ls -la results/
 
-### Sincronización
-- ✅ Usar `while` (no `if`) con `pthread_cond_wait`
-- ✅ Evitar `volatile` como mecanismo de exclusión
-- ✅ Delimitar secciones críticas al mínimo
-- ✅ Liberar siempre recursos (destroy de mutex/cond/rwlock/barrier)
-- ✅ Documentar políticas de equidad y shutdown
+# Analizar resultados (si tienes Python con pandas/matplotlib)
+python3 scripts/analyze_results.py results/
 
-### Performance
-- 🚀 No mezclar sanitizers con benchmarks finales
-- 🚀 Ejecutar ≥5 repeticiones por configuración
-- 🚀 Reportar tiempo total, ops/segundo y desviación estándar
-- 🚀 Mantener versiones unsafe y safe para comparación
+# Si no tienes pandas, solo ver un resumen manual
+head -20 results/benchmark_summary.txt
+7. Verificación de Archivos del Proyecto
+bash# Estructura completa del proyecto
+find . -type f -name "*.cpp" -o -name "*.hpp" -o -name "*.sh" -o -name "*.md" -o -name "Makefile" | sort
 
-### Debugging
-- 🔍 Usar ThreadSanitizer para detectar races
-- 🔍 Validar con Helgrind cuando sea posible
-- 🔍 Implementar logging detallado para debugging
-- 🔍 Probar en diferentes números de hilos
-
-## Referencias
-
-- [POSIX Threads Programming](https://computing.llnl.gov/tutorials/pthreads/)
-- [GCC ThreadSanitizer](https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html)
-- [Valgrind User Manual](https://valgrind.org/docs/manual/)
-- [C++ Concurrency in Action](https://www.manning.com/books/c-plus-plus-concurrency-in-action)
-
----
-
-**Universidad del Valle de Guatemala**  
-**Facultad de Ingeniería - Departamento de Ciencias de la Computación**  
-**CC3086 Programación de Microprocesadores - Ciclo 2 de 2025**
+# Ver estadísticas de código
+wc -l src/*.cpp include/*.hpp
