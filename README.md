@@ -344,16 +344,16 @@ g++ -pthread src/programa.cpp -o bin/programa
 1. Preparación y Compilación Inicial
 ```bash 
 # Hacer scripts ejecutables
-# chmod +x scripts/*.sh *.sh
+chmod +x scripts/*.sh *.sh
 
 
 # Verificación rápida inicial
-# ./verify_lab.sh
+./verify_lab.sh
 ```
 
 2. Compilación con Sanitizers (para detectar problemas)
 ```bash 
-Compilar con ThreadSanitizer
+# Compilar con ThreadSanitizer
 make tsan
 
 # Probar con ThreadSanitizer (buscar race conditions)
@@ -363,34 +363,39 @@ make tsan
 3. Pruebas Funcionales por Práctica
 ```bash 
 # PRÁCTICA 1: Counter Race Conditions
-# echo "=== P1: COUNTER ==="
-# ./bin/p1_counter 4 100000 1
+echo "=== P1: COUNTER ==="
+./bin/p1_counter 4 100000 1
 
 # PRÁCTICA 2: Buffer Circular
-# echo "=== P2: RING BUFFER ==="
-# ./bin/p2_ring 2 2 50000
+echo "=== P2: RING BUFFER ==="
+./bin/p2_ring 2 2 50000
 
 # PRÁCTICA 3: Lectores/Escritores  
-# echo "=== P3: READERS/WRITERS ==="
-# ./bin/p3_rw 4 10000
+echo "=== P3: READERS/WRITERS ==="
+./bin/p3_rw 4 10000
 
 # PRÁCTICA 4: Deadlock (solo soluciones seguras)
-# echo "=== P4: DEADLOCK SOLUTIONS ==="
-# ./bin/p4_deadlock 2  # Orden total
-# ./bin/p4_deadlock 3  # Trylock
+echo "=== P4: DEADLOCK SOLUTIONS ==="
+./bin/p4_deadlock 2  # Orden total
+./bin/p4_deadlock 3  # Trylock
 
 # PRÁCTICA 5: Pipeline
-# echo "=== P5: PIPELINE ==="
-# ./bin/p5_pipeline
+echo "=== P5: PIPELINE ==="
+./bin/p5_pipeline
 ```
 4. Ejecución Completa Automatizada
-Ejecutar todas las prácticas
+```bash 
+# Ejecutar todas las prácticas
 ./scripts/run_all.sh
+```
 5. Benchmarks Automatizados
-Ejecutar benchmarks (esto toma varios minutos)
+```bash 
+# Ejecutar benchmarks (esto toma varios minutos)
 ./scripts/benchmark.sh
+```
 6. Análisis de Resultados
-Ver qué archivos se generaron
+```bash 
+# Ver qué archivos se generaron
 ls -la results/
 
 # Analizar resultados (si tienes Python con pandas/matplotlib)
@@ -398,9 +403,12 @@ python3 scripts/analyze_results.py results/
 
 # Si no tienes pandas, solo ver un resumen manual
 head -20 results/benchmark_summary.txt
+```
 7. Verificación de Archivos del Proyecto
-Estructura completa del proyecto
+```bash 
+# Estructura completa del proyecto
 find . -type f -name "*.cpp" -o -name "*.hpp" -o -name "*.sh" -o -name "*.md" -o -name "Makefile" | sort
 
 # Ver estadísticas de código
 wc -l src/*.cpp include/*.hpp
+```
