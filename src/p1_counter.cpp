@@ -2,7 +2,7 @@
  * Universidad del Valle de Guatemala
  * CC3086 Programación de Microprocesadores
  * Laboratorio 6 - Práctica 1: Contador con Race Conditions
- * 
+ * Autor: Denil Parada 24761
  * Demuestra race conditions en un contador global y sus soluciones:
  * A) Versión insegura con race conditions
  * B) Protección con pthread_mutex_t

@@ -2,7 +2,7 @@
  * Universidad del Valle de Guatemala
  * CC3086 Programación de Microprocesadores
  * Laboratorio 6 - Práctica 5: Pipeline con Barreras
- * 
+ * Autor: Denil Parada 24761 
  * Implementa un pipeline de tres etapas sincronizadas con pthread_barrier_t
  * Usa pthread_once_t para inicialización única compartida
  */

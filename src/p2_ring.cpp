@@ -2,7 +2,7 @@
  * Universidad del Valle de Guatemala
  * CC3086 Programación de Microprocesadores
  * Laboratorio 6 - Práctica 2: Buffer Circular Productor/Consumidor
- * 
+ * Autor: Denil Parada 24761
  * Implementa una cola FIFO acotada con pthread_mutex_t y pthread_cond_t
  * Soporta múltiples productores y consumidores (MPMC)
  * Evita busy waiting usando condition variables

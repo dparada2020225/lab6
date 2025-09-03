@@ -2,7 +2,7 @@
  * Universidad del Valle de Guatemala
  * CC3086 Programación de Microprocesadores
  * Laboratorio 6 - Práctica 3: Lectores/Escritores y Equidad
- * 
+ * Autor: Denil Parada 24761
  * Compara pthread_rwlock_t vs pthread_mutex_t en una tabla hash compartida
  * Evalúa throughput bajo diferentes proporciones de lectura/escritura
  */

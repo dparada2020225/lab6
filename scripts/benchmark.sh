@@ -3,6 +3,8 @@
 # Universidad del Valle de Guatemala
 # CC3086 Programación de Microprocesadores
 # Laboratorio 6 - Benchmarking Automatizado
+# Denil Parada
+
 
 RESULTS_DIR="results"
 RUNS=5  # Número de repeticiones por configuración

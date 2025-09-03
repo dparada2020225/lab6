@@ -3,6 +3,7 @@
 # Universidad del Valle de Guatemala
 # CC3086 Programación de Microprocesadores
 # Laboratorio 6 - Script de Ejecución Completa
+# Denil Parada
 
 echo "=============================================="
 echo "Lab06: Acceso a Recursos Compartidos Pthreads"

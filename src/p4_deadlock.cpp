@@ -2,7 +2,7 @@
  * Universidad del Valle de Guatemala
  * CC3086 Programación de Microprocesadores
  * Laboratorio 6 - Práctica 4: Deadlock Intencional y Corrección
- * 
+ * Autor: Denil Parada 24761 
  * Demuestra un deadlock clásico con dos mutex y dos hilos
  * Implementa soluciones: ordenación total y trylock con backoff
  */
