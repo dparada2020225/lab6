@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <errno.h>
+#include <signal.h>
 #include "../include/timing.hpp"
 
 pthread_mutex_t mutex_A = PTHREAD_MUTEX_INITIALIZER;
@@ -179,10 +180,16 @@ void reset_state() {
     operations_completed = 0;
 }
 
+void print_separator(const char* title) {
+    printf("\n");
+    for(int i = 0; i < 50; i++) printf("=");
+    printf("\n%s\n", title);
+    for(int i = 0; i < 50; i++) printf("=");
+    printf("\n");
+}
+
 void run_deadlock_demo() {
-    printf("\n" "=" * 50 "\n");
-    printf("DEMOSTRACIÓN DE DEADLOCK\n");
-    printf("=" * 50 "\n");
+    print_separator("DEMOSTRACIÓN DE DEADLOCK");
     printf("⚠️  Esta versión PUEDE generar deadlock!\n");
     printf("Si el programa se cuelga, usa Ctrl+C para terminar\n\n");
     
@@ -196,43 +203,54 @@ void run_deadlock_demo() {
     pthread_create(&t1, nullptr, thread1_deadlock, &id1);
     pthread_create(&t2, nullptr, thread2_deadlock, &id2);
     
-    // Timeout para evitar esperar indefinidamente
     printf("Esperando máximo 5 segundos...\n");
     
-    // Usar pthread_join con timeout simulado
-    bool t1_done = false, t2_done = false;
+    // Método simple de timeout usando alarma
+    bool timeout_occurred = false;
+    double elapsed = 0;
     
-    for (int i = 0; i < 50; i++) {  // 5 segundos en pasos de 100ms
-        if (!t1_done && pthread_kill(t1, 0) != 0) t1_done = true;
-        if (!t2_done && pthread_kill(t2, 0) != 0) t2_done = true;
+    while (elapsed < 5.0) {
+        void* result1, *result2;
         
-        if (t1_done && t2_done) break;
+        // Intentar join con timeout usando pthread_tryjoin_np si está disponible
+        // Si no, usar método de polling simple
         usleep(100000);  // 100ms
+        elapsed = now_s() - start;
+        
+        // Verificar si los hilos aún existen (método aproximado)
+        int kill_result1 = pthread_kill(t1, 0);
+        int kill_result2 = pthread_kill(t2, 0);
+        
+        if (kill_result1 != 0 && kill_result2 != 0) {
+            // Ambos hilos terminaron
+            pthread_join(t1, nullptr);
+            pthread_join(t2, nullptr);
+            break;
+        }
+        
+        if (elapsed >= 5.0) {
+            timeout_occurred = true;
+            break;
+        }
     }
     
-    double elapsed = now_s() - start;
-    
-    if (t1_done && t2_done) {
-        pthread_join(t1, nullptr);
-        pthread_join(t2, nullptr);
-        printf("✓ Ambos hilos completaron en %.4f segundos\n", elapsed);
-        printf("Operaciones completadas: %d/2\n", operations_completed);
-    } else {
+    if (timeout_occurred) {
         printf("⚠️ POSIBLE DEADLOCK DETECTADO después de %.1f segundos\n", elapsed);
         printf("Los hilos no terminaron en tiempo razonable\n");
         
-        // En un programa real, aquí implementarías detección y recuperación
+        // Cancelar hilos
         pthread_cancel(t1);
         pthread_cancel(t2);
         pthread_join(t1, nullptr);
         pthread_join(t2, nullptr);
+    } else {
+        printf("✓ Ambos hilos completaron en %.4f segundos\n", elapsed);
+        printf("Operaciones completadas: %d/2\n", operations_completed);
     }
 }
 
 void run_ordered_solution() {
-    printf("\n" "=" * 50 "\n");
-    printf("SOLUCIÓN 1: ORDEN TOTAL\n");
-    printf("=" * 50 "\n");
+    print_separator("SOLUCIÓN 1: ORDEN TOTAL");
     
     reset_state();
     
@@ -255,10 +273,7 @@ void run_ordered_solution() {
 }
 
 void run_trylock_solution() {
-    printf("\n");
-    printf("==================================================\n");
-    printf("SOLUCIÓN 2: TRYLOCK + BACKOFF\n");
-    printf("==================================================\n");
+    print_separator("SOLUCIÓN 2: TRYLOCK + BACKOFF");
     
     reset_state();
     
