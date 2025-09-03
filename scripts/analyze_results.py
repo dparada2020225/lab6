@@ -223,6 +223,16 @@ def generate_report(results_dir):
 
 def plot_results(results_dir):
     """Genera gráficos de los resultados (requiere matplotlib)"""
+    if not MATPLOTLIB_AVAILABLE:
+        print("⚠️  Matplotlib no disponible, omitiendo gráficos")
+        print("   Instalar con: pip3 install matplotlib")
+        return
+        
+    if not PANDAS_AVAILABLE:
+        print("⚠️  Pandas no disponible, omitiendo gráficos")
+        print("   Instalar con: pip3 install pandas")
+        return
+    
     csv_path = os.path.join(results_dir, 'analysis_summary.csv')
     
     if not os.path.exists(csv_path):
@@ -253,8 +263,6 @@ def plot_results(results_dir):
         print(f"📈 Gráfico guardado en: {plot_path}")
         plt.close()
         
-    except ImportError:
-        print("⚠️  matplotlib no disponible, omitiendo gráficos")
     except Exception as e:
         print(f"❌ Error generando gráficos: {e}")
 

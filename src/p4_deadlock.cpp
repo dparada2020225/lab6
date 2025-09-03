@@ -255,9 +255,10 @@ void run_ordered_solution() {
 }
 
 void run_trylock_solution() {
-    printf("\n" "=" * 50 "\n");
+    printf("\n");
+    printf("==================================================\n");
     printf("SOLUCIÓN 2: TRYLOCK + BACKOFF\n");
-    printf("=" * 50 "\n");
+    printf("==================================================\n");
     
     reset_state();
     

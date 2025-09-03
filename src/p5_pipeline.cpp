@@ -262,9 +262,10 @@ void cleanup_resources() {
 }
 
 void print_statistics() {
-    printf("\n" "=" * 60 "\n");
+    printf("\n");
+    printf("============================================================\n");
     printf("ESTADÍSTICAS DEL PIPELINE\n");
-    printf("=" * 60 "\n");
+    printf("============================================================\n");
     
     const char* stage_names[] = {"GENERADOR", "FILTRO", "REDUCER"};
     
