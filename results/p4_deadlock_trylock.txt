@@ -1,0 +1,201 @@
+# P4 Deadlock: Solución con trylock
+# Configuración: 3
+# Fecha: Tue Sep  2 23:14:31 CST 2025
+# Sistema: Linux Denil 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+# CPU: 13th Gen Intel(R) Core(TM) i9-13900HX
+
+=== RUN 1 ===
+Laboratorio 6 - Práctica 4: Deadlock y Corrección
+
+==================================================
+SOLUCIÓN 2: TRYLOCK + BACKOFF
+==================================================
+[Hilo 2] Iniciando con trylock + backoff
+[Hilo 2] Intento 1...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 1] Iniciando con trylock + backoff
+[Hilo 1] Intento 1...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 2] ⚠️ No pudo obtener segundo mutex, reintentando...
+[Hilo 2] Liberó primer mutex
+[Hilo 2] Esperando 2 ms antes de reintentar...
+[Hilo 1] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 1] Liberó segundo mutex
+[Hilo 1] Liberó primer mutex
+[Hilo 1] ✓ Completado con trylock (intentos: 1)
+[Hilo 2] Intento 2...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 2] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 2] Liberó segundo mutex
+[Hilo 2] Liberó primer mutex
+[Hilo 2] ✓ Completado con trylock (intentos: 2)
+✓ Solución completada en 0.0239 segundos
+Operaciones completadas: 2/2
+Estado final - A: 15, B: 45
+
+=== ANÁLISIS DE CONDICIONES DE COFFMAN ===
+1. Exclusión mutua: ✓ (mutex no compartibles)
+2. Hold and wait: ✓ (mantener A mientras espera B)
+3. No preemption: ✓ (no se pueden quitar mutex por fuerza)
+4. Circular wait: ✓ (T1 espera B, T2 espera A)
+
+SOLUCIONES:
+- Orden total: Elimina circular wait
+- Trylock: Elimina hold and wait con timeout
+
+=== RUN 2 ===
+Laboratorio 6 - Práctica 4: Deadlock y Corrección
+
+==================================================
+SOLUCIÓN 2: TRYLOCK + BACKOFF
+==================================================
+[Hilo 1] Iniciando con trylock + backoff
+[Hilo 1] Intento 1...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 2] Iniciando con trylock + backoff
+[Hilo 2] Intento 1...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 1] ⚠️ No pudo obtener segundo mutex, reintentando...
+[Hilo 1] Liberó primer mutex
+[Hilo 1] Esperando 2 ms antes de reintentar...
+[Hilo 2] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 2] Liberó segundo mutex
+[Hilo 2] Liberó primer mutex
+[Hilo 2] ✓ Completado con trylock (intentos: 1)
+[Hilo 1] Intento 2...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 1] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 1] Liberó segundo mutex
+[Hilo 1] Liberó primer mutex
+[Hilo 1] ✓ Completado con trylock (intentos: 2)
+✓ Solución completada en 0.0309 segundos
+Operaciones completadas: 2/2
+Estado final - A: 15, B: 45
+
+=== ANÁLISIS DE CONDICIONES DE COFFMAN ===
+1. Exclusión mutua: ✓ (mutex no compartibles)
+2. Hold and wait: ✓ (mantener A mientras espera B)
+3. No preemption: ✓ (no se pueden quitar mutex por fuerza)
+4. Circular wait: ✓ (T1 espera B, T2 espera A)
+
+SOLUCIONES:
+- Orden total: Elimina circular wait
+- Trylock: Elimina hold and wait con timeout
+
+=== RUN 3 ===
+Laboratorio 6 - Práctica 4: Deadlock y Corrección
+
+==================================================
+SOLUCIÓN 2: TRYLOCK + BACKOFF
+==================================================
+[Hilo 2] Iniciando con trylock + backoff
+[Hilo 2] Intento 1...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 1] Iniciando con trylock + backoff
+[Hilo 1] Intento 1...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 2] ⚠️ No pudo obtener segundo mutex, reintentando...
+[Hilo 2] Liberó primer mutex
+[Hilo 2] Esperando 2 ms antes de reintentar...
+[Hilo 1] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 1] Liberó segundo mutex
+[Hilo 1] Liberó primer mutex
+[Hilo 1] ✓ Completado con trylock (intentos: 1)
+[Hilo 2] Intento 2...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 2] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 2] Liberó segundo mutex
+[Hilo 2] Liberó primer mutex
+[Hilo 2] ✓ Completado con trylock (intentos: 2)
+✓ Solución completada en 0.0231 segundos
+Operaciones completadas: 2/2
+Estado final - A: 15, B: 45
+
+=== ANÁLISIS DE CONDICIONES DE COFFMAN ===
+1. Exclusión mutua: ✓ (mutex no compartibles)
+2. Hold and wait: ✓ (mantener A mientras espera B)
+3. No preemption: ✓ (no se pueden quitar mutex por fuerza)
+4. Circular wait: ✓ (T1 espera B, T2 espera A)
+
+SOLUCIONES:
+- Orden total: Elimina circular wait
+- Trylock: Elimina hold and wait con timeout
+
+=== RUN 4 ===
+Laboratorio 6 - Práctica 4: Deadlock y Corrección
+
+==================================================
+SOLUCIÓN 2: TRYLOCK + BACKOFF
+==================================================
+[Hilo 1] Iniciando con trylock + backoff
+[Hilo 1] Intento 1...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 2] Iniciando con trylock + backoff
+[Hilo 2] Intento 1...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 1] ⚠️ No pudo obtener segundo mutex, reintentando...
+[Hilo 1] Liberó primer mutex
+[Hilo 1] Esperando 2 ms antes de reintentar...
+[Hilo 2] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 2] Liberó segundo mutex
+[Hilo 2] Liberó primer mutex
+[Hilo 2] ✓ Completado con trylock (intentos: 1)
+[Hilo 1] Intento 2...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 1] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 1] Liberó segundo mutex
+[Hilo 1] Liberó primer mutex
+[Hilo 1] ✓ Completado con trylock (intentos: 2)
+✓ Solución completada en 0.0231 segundos
+Operaciones completadas: 2/2
+Estado final - A: 15, B: 45
+
+=== ANÁLISIS DE CONDICIONES DE COFFMAN ===
+1. Exclusión mutua: ✓ (mutex no compartibles)
+2. Hold and wait: ✓ (mantener A mientras espera B)
+3. No preemption: ✓ (no se pueden quitar mutex por fuerza)
+4. Circular wait: ✓ (T1 espera B, T2 espera A)
+
+SOLUCIONES:
+- Orden total: Elimina circular wait
+- Trylock: Elimina hold and wait con timeout
+
+=== RUN 5 ===
+Laboratorio 6 - Práctica 4: Deadlock y Corrección
+
+==================================================
+SOLUCIÓN 2: TRYLOCK + BACKOFF
+==================================================
+[Hilo 1] Iniciando con trylock + backoff
+[Hilo 1] Intento 1...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 2] Iniciando con trylock + backoff
+[Hilo 2] Intento 1...
+[Hilo 2] ✓ Obtuvo primer mutex
+[Hilo 1] ⚠️ No pudo obtener segundo mutex, reintentando...
+[Hilo 1] Liberó primer mutex
+[Hilo 1] Esperando 2 ms antes de reintentar...
+[Hilo 2] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 2] Liberó segundo mutex
+[Hilo 2] Liberó primer mutex
+[Hilo 2] ✓ Completado con trylock (intentos: 1)
+[Hilo 1] Intento 2...
+[Hilo 1] ✓ Obtuvo primer mutex
+[Hilo 1] ✓ Obtuvo segundo mutex - SUCCESS!
+[Hilo 1] Liberó segundo mutex
+[Hilo 1] Liberó primer mutex
+[Hilo 1] ✓ Completado con trylock (intentos: 2)
+✓ Solución completada en 0.0289 segundos
+Operaciones completadas: 2/2
+Estado final - A: 15, B: 45
+
+=== ANÁLISIS DE CONDICIONES DE COFFMAN ===
+1. Exclusión mutua: ✓ (mutex no compartibles)
+2. Hold and wait: ✓ (mantener A mientras espera B)
+3. No preemption: ✓ (no se pueden quitar mutex por fuerza)
+4. Circular wait: ✓ (T1 espera B, T2 espera A)
+
+SOLUCIONES:
+- Orden total: Elimina circular wait
+- Trylock: Elimina hold and wait con timeout
+

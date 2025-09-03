@@ -5,8 +5,7 @@ bin/
 *.a
 
 # Archivos de resultados y datos
-data/
-results/
+
 *.log
 *.csv
 

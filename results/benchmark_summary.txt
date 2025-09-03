@@ -1,0 +1,38 @@
+RESUMEN DE BENCHMARKS - LAB06
+Fecha: Tue Sep  2 23:14:46 CST 2025
+Sistema: Linux Denil 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+CPU: 13th Gen Intel(R) Core(TM) i9-13900HX
+Repeticiones por configuración: 5
+
+ARCHIVOS GENERADOS:
+==================
+-rwxrwxrwx 1 denil denil    321 Sep  2 23:14 results/benchmark_summary.txt
+-rwxrwxrwx 1 denil denil   5694 Sep  2 23:12 results/p1_counter_load1000000.txt
+-rwxrwxrwx 1 denil denil   5696 Sep  2 23:12 results/p1_counter_load2000000.txt
+-rwxrwxrwx 1 denil denil   5659 Sep  2 23:12 results/p1_counter_load500000.txt
+-rwxrwxrwx 1 denil denil   5656 Sep  2 23:11 results/p1_counter_t1.txt
+-rwxrwxrwx 1 denil denil   5681 Sep  2 23:11 results/p1_counter_t2.txt
+-rwxrwxrwx 1 denil denil   5692 Sep  2 23:12 results/p1_counter_t4.txt
+-rwxrwxrwx 1 denil denil   5695 Sep  2 23:12 results/p1_counter_t8.txt
+-rwxrwxrwx 1 denil denil   3477 Sep  2 23:12 results/p2_ring_p1c1i100000.txt
+-rwxrwxrwx 1 denil denil   3730 Sep  2 23:13 results/p2_ring_p1c2i100000.txt
+-rwxrwxrwx 1 denil denil   3742 Sep  2 23:13 results/p2_ring_p2c1i100000.txt
+-rwxrwxrwx 1 denil denil   3990 Sep  2 23:12 results/p2_ring_p2c2i100000.txt
+-rwxrwxrwx 1 denil denil   4456 Sep  2 23:13 results/p2_ring_p2c4i50000.txt
+-rwxrwxrwx 1 denil denil   4463 Sep  2 23:13 results/p2_ring_p4c2i50000.txt
+-rwxrwxrwx 1 denil denil   4954 Sep  2 23:12 results/p2_ring_p4c4i50000.txt
+-rwxrwxrwx 1 denil denil  13866 Sep  2 23:13 results/p3_rw_t2.txt
+-rwxrwxrwx 1 denil denil  13905 Sep  2 23:13 results/p3_rw_t4.txt
+-rwxrwxrwx 1 denil denil  13902 Sep  2 23:14 results/p3_rw_t6.txt
+-rwxrwxrwx 1 denil denil  13922 Sep  2 23:14 results/p3_rw_t8.txt
+-rwxrwxrwx 1 denil denil   6104 Sep  2 23:14 results/p4_deadlock_ordered.txt
+-rwxrwxrwx 1 denil denil   7045 Sep  2 23:14 results/p4_deadlock_trylock.txt
+-rwxrwxrwx 1 denil denil 867363 Sep  2 23:14 results/p5_pipeline.txt
+
+ESTADÍSTICAS RÁPIDAS:
+====================
+Total de archivos de benchmark: 21
+Archivos con TIMEOUT: 0
+Archivos con ERROR: 0
+
+Para análisis detallado, revisar archivos individuales en results/

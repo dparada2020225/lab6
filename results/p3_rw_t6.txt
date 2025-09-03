@@ -1,0 +1,456 @@
+# P3 RW Lock: 6 hilos, 50000 ops/hilo
+# Configuración: 6 50000
+# Fecha: Tue Sep  2 23:13:58 CST 2025
+# Sistema: Linux Denil 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+# CPU: 13th Gen Intel(R) Core(TM) i9-13900HX
+
+=== RUN 1 ===
+Laboratorio 6 - Práctica 3: Lectores/Escritores
+Configuración: 6 hilos, 50000 operaciones por hilo
+
+=== MUTEX (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0365 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 8214358 ops/segundo
+Tiempo promedio por hilo: 0.0355 segundos
+
+=== RWLOCK (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1946 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 1541482 ops/segundo
+Tiempo promedio por hilo: 0.1911 segundos
+
+=== MUTEX (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0655 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 4577655 ops/segundo
+Tiempo promedio por hilo: 0.0648 segundos
+
+=== RWLOCK (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1983 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 1513079 ops/segundo
+Tiempo promedio por hilo: 0.1957 segundos
+
+=== MUTEX (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0745 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 4024380 ops/segundo
+Tiempo promedio por hilo: 0.0740 segundos
+
+=== RWLOCK (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1745 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 1718987 ops/segundo
+Tiempo promedio por hilo: 0.1718 segundos
+
+=== MUTEX (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0781 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 3842488 ops/segundo
+Tiempo promedio por hilo: 0.0769 segundos
+
+=== RWLOCK (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1497 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 2003344 ops/segundo
+Tiempo promedio por hilo: 0.1481 segundos
+
+=== MUTEX (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0824 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 3642587 ops/segundo
+Tiempo promedio por hilo: 0.0808 segundos
+
+=== RWLOCK (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1221 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 2456478 ops/segundo
+Tiempo promedio por hilo: 0.1214 segundos
+
+=== ANÁLISIS ===
+- MUTEX: Exclusión mutua total, simple pero con alta contención
+- RWLOCK: Permite múltiples lectores concurrentes
+- RWLock es más eficiente cuando hay mayoría de lecturas (≥70%)
+- Con muchas escrituras, el overhead de rwlock puede ser contraproducente
+
+=== RUN 2 ===
+Laboratorio 6 - Práctica 3: Lectores/Escritores
+Configuración: 6 hilos, 50000 operaciones por hilo
+
+=== MUTEX (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0399 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 7515775 ops/segundo
+Tiempo promedio por hilo: 0.0387 segundos
+
+=== RWLOCK (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1909 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 1571634 ops/segundo
+Tiempo promedio por hilo: 0.1881 segundos
+
+=== MUTEX (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0685 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 4380797 ops/segundo
+Tiempo promedio por hilo: 0.0676 segundos
+
+=== RWLOCK (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.2125 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 1412072 ops/segundo
+Tiempo promedio por hilo: 0.2097 segundos
+
+=== MUTEX (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0783 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 3829799 ops/segundo
+Tiempo promedio por hilo: 0.0772 segundos
+
+=== RWLOCK (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1883 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 1593131 ops/segundo
+Tiempo promedio por hilo: 0.1856 segundos
+
+=== MUTEX (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0825 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 3635690 ops/segundo
+Tiempo promedio por hilo: 0.0816 segundos
+
+=== RWLOCK (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1540 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 1947542 ops/segundo
+Tiempo promedio por hilo: 0.1511 segundos
+
+=== MUTEX (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0864 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 3471125 ops/segundo
+Tiempo promedio por hilo: 0.0853 segundos
+
+=== RWLOCK (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1228 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 2442133 ops/segundo
+Tiempo promedio por hilo: 0.1213 segundos
+
+=== ANÁLISIS ===
+- MUTEX: Exclusión mutua total, simple pero con alta contención
+- RWLOCK: Permite múltiples lectores concurrentes
+- RWLock es más eficiente cuando hay mayoría de lecturas (≥70%)
+- Con muchas escrituras, el overhead de rwlock puede ser contraproducente
+
+=== RUN 3 ===
+Laboratorio 6 - Práctica 3: Lectores/Escritores
+Configuración: 6 hilos, 50000 operaciones por hilo
+
+=== MUTEX (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0416 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 7206179 ops/segundo
+Tiempo promedio por hilo: 0.0407 segundos
+
+=== RWLOCK (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1965 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 1526659 ops/segundo
+Tiempo promedio por hilo: 0.1947 segundos
+
+=== MUTEX (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0678 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 4425437 ops/segundo
+Tiempo promedio por hilo: 0.0666 segundos
+
+=== RWLOCK (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.2065 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 1452648 ops/segundo
+Tiempo promedio por hilo: 0.2036 segundos
+
+=== MUTEX (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0765 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 3920697 ops/segundo
+Tiempo promedio por hilo: 0.0746 segundos
+
+=== RWLOCK (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1866 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 1607909 ops/segundo
+Tiempo promedio por hilo: 0.1856 segundos
+
+=== MUTEX (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0828 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 3624480 ops/segundo
+Tiempo promedio por hilo: 0.0817 segundos
+
+=== RWLOCK (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1530 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 1960662 ops/segundo
+Tiempo promedio por hilo: 0.1513 segundos
+
+=== MUTEX (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0879 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 3412466 ops/segundo
+Tiempo promedio por hilo: 0.0869 segundos
+
+=== RWLOCK (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1238 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 2422784 ops/segundo
+Tiempo promedio por hilo: 0.1225 segundos
+
+=== ANÁLISIS ===
+- MUTEX: Exclusión mutua total, simple pero con alta contención
+- RWLOCK: Permite múltiples lectores concurrentes
+- RWLock es más eficiente cuando hay mayoría de lecturas (≥70%)
+- Con muchas escrituras, el overhead de rwlock puede ser contraproducente
+
+=== RUN 4 ===
+Laboratorio 6 - Práctica 3: Lectores/Escritores
+Configuración: 6 hilos, 50000 operaciones por hilo
+
+=== MUTEX (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0404 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 7432446 ops/segundo
+Tiempo promedio por hilo: 0.0394 segundos
+
+=== RWLOCK (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1985 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 1511493 ops/segundo
+Tiempo promedio por hilo: 0.1960 segundos
+
+=== MUTEX (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0655 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 4583521 ops/segundo
+Tiempo promedio por hilo: 0.0636 segundos
+
+=== RWLOCK (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.2037 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 1472838 ops/segundo
+Tiempo promedio por hilo: 0.2011 segundos
+
+=== MUTEX (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0770 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 3897617 ops/segundo
+Tiempo promedio por hilo: 0.0764 segundos
+
+=== RWLOCK (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1816 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 1651677 ops/segundo
+Tiempo promedio por hilo: 0.1771 segundos
+
+=== MUTEX (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0809 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 3708552 ops/segundo
+Tiempo promedio por hilo: 0.0795 segundos
+
+=== RWLOCK (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1569 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 1911922 ops/segundo
+Tiempo promedio por hilo: 0.1550 segundos
+
+=== MUTEX (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0869 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 3450664 ops/segundo
+Tiempo promedio por hilo: 0.0853 segundos
+
+=== RWLOCK (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1216 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 2466283 ops/segundo
+Tiempo promedio por hilo: 0.1200 segundos
+
+=== ANÁLISIS ===
+- MUTEX: Exclusión mutua total, simple pero con alta contención
+- RWLOCK: Permite múltiples lectores concurrentes
+- RWLock es más eficiente cuando hay mayoría de lecturas (≥70%)
+- Con muchas escrituras, el overhead de rwlock puede ser contraproducente
+
+=== RUN 5 ===
+Laboratorio 6 - Práctica 3: Lectores/Escritores
+Configuración: 6 hilos, 50000 operaciones por hilo
+
+=== MUTEX (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0379 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 7917389 ops/segundo
+Tiempo promedio por hilo: 0.0354 segundos
+
+=== RWLOCK (R/W: 90/10%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.2018 segundos
+Lecturas: 269986, Escrituras: 30014
+Colisiones: 8504 (28.33%)
+Throughput: 1486534 ops/segundo
+Tiempo promedio por hilo: 0.1991 segundos
+
+=== MUTEX (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0692 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 4337218 ops/segundo
+Tiempo promedio por hilo: 0.0684 segundos
+
+=== RWLOCK (R/W: 70/30%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.2125 segundos
+Lecturas: 210028, Escrituras: 89972
+Colisiones: 8974 (9.97%)
+Throughput: 1411485 ops/segundo
+Tiempo promedio por hilo: 0.2090 segundos
+
+=== MUTEX (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0773 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 3883263 ops/segundo
+Tiempo promedio por hilo: 0.0762 segundos
+
+=== RWLOCK (R/W: 50/50%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1850 segundos
+Lecturas: 150103, Escrituras: 149897
+Colisiones: 8976 (5.99%)
+Throughput: 1622049 ops/segundo
+Tiempo promedio por hilo: 0.1815 segundos
+
+=== MUTEX (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0813 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 3691513 ops/segundo
+Tiempo promedio por hilo: 0.0796 segundos
+
+=== RWLOCK (R/W: 30/70%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1589 segundos
+Lecturas: 89799, Escrituras: 210201
+Colisiones: 8976 (4.27%)
+Throughput: 1887783 ops/segundo
+Tiempo promedio por hilo: 0.1565 segundos
+
+=== MUTEX (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.0852 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 3519475 ops/segundo
+Tiempo promedio por hilo: 0.0839 segundos
+
+=== RWLOCK (R/W: 10/90%) ===
+Hilos: 6, Operaciones por hilo: 50000
+Tiempo total: 0.1268 segundos
+Lecturas: 29868, Escrituras: 270132
+Colisiones: 8976 (3.32%)
+Throughput: 2366037 ops/segundo
+Tiempo promedio por hilo: 0.1253 segundos
+
+=== ANÁLISIS ===
+- MUTEX: Exclusión mutua total, simple pero con alta contención
+- RWLOCK: Permite múltiples lectores concurrentes
+- RWLock es más eficiente cuando hay mayoría de lecturas (≥70%)
+- Con muchas escrituras, el overhead de rwlock puede ser contraproducente
+

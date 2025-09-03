@@ -1,0 +1,206 @@
+# P1 Counter: 4 hilos, 500000 iteraciones
+# Configuración: 4 500000 1
+# Fecha: Tue Sep  2 23:12:09 CST 2025
+# Sistema: Linux Denil 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+# CPU: 13th Gen Intel(R) Core(TM) i9-13900HX
+
+=== RUN 1 ===
+Laboratorio 6 - Práctica 1: Race Conditions en Contador
+Configuración: 4 hilos, 500000 iteraciones por hilo
+
+>>> EJECUCIÓN 1 <<<
+
+=== A) NAIVE (Race Condition) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 1277504 (esperado: 2000000)
+Diferencia: 722496 (36.12%)
+Tiempo: 0.0003 segundos
+Throughput: 7218939609 ops/sec
+
+=== B) MUTEX (Protegido) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0537 segundos
+Throughput: 37250745 ops/sec
+
+=== C) SHARDED (Sin contención) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0003 segundos
+Throughput: 6104707950 ops/sec
+
+=== D) ATOMIC (C++17) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0163 segundos
+Throughput: 122556972 ops/sec
+
+=== ANÁLISIS ===
+1. NAIVE: Muestra pérdidas por race conditions
+2. MUTEX: Correcto pero con alta contención
+3. SHARDED: Mayor throughput, requiere reduce
+4. ATOMIC: Balance entre corrección y rendimiento
+
+=== RUN 2 ===
+Laboratorio 6 - Práctica 1: Race Conditions en Contador
+Configuración: 4 hilos, 500000 iteraciones por hilo
+
+>>> EJECUCIÓN 1 <<<
+
+=== A) NAIVE (Race Condition) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 1402945 (esperado: 2000000)
+Diferencia: 597055 (29.85%)
+Tiempo: 0.0004 segundos
+Throughput: 4832808974 ops/sec
+
+=== B) MUTEX (Protegido) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0579 segundos
+Throughput: 34542645 ops/sec
+
+=== C) SHARDED (Sin contención) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0003 segundos
+Throughput: 6562541019 ops/sec
+
+=== D) ATOMIC (C++17) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0151 segundos
+Throughput: 132129117 ops/sec
+
+=== ANÁLISIS ===
+1. NAIVE: Muestra pérdidas por race conditions
+2. MUTEX: Correcto pero con alta contención
+3. SHARDED: Mayor throughput, requiere reduce
+4. ATOMIC: Balance entre corrección y rendimiento
+
+=== RUN 3 ===
+Laboratorio 6 - Práctica 1: Race Conditions en Contador
+Configuración: 4 hilos, 500000 iteraciones por hilo
+
+>>> EJECUCIÓN 1 <<<
+
+=== A) NAIVE (Race Condition) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 1182393 (esperado: 2000000)
+Diferencia: 817607 (40.88%)
+Tiempo: 0.0004 segundos
+Throughput: 4522697155 ops/sec
+
+=== B) MUTEX (Protegido) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0705 segundos
+Throughput: 28358605 ops/sec
+
+=== C) SHARDED (Sin contención) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0004 segundos
+Throughput: 4581775531 ops/sec
+
+=== D) ATOMIC (C++17) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0163 segundos
+Throughput: 122675837 ops/sec
+
+=== ANÁLISIS ===
+1. NAIVE: Muestra pérdidas por race conditions
+2. MUTEX: Correcto pero con alta contención
+3. SHARDED: Mayor throughput, requiere reduce
+4. ATOMIC: Balance entre corrección y rendimiento
+
+=== RUN 4 ===
+Laboratorio 6 - Práctica 1: Race Conditions en Contador
+Configuración: 4 hilos, 500000 iteraciones por hilo
+
+>>> EJECUCIÓN 1 <<<
+
+=== A) NAIVE (Race Condition) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 1214660 (esperado: 2000000)
+Diferencia: 785340 (39.27%)
+Tiempo: 0.0009 segundos
+Throughput: 2291990410 ops/sec
+
+=== B) MUTEX (Protegido) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0732 segundos
+Throughput: 27335338 ops/sec
+
+=== C) SHARDED (Sin contención) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0004 segundos
+Throughput: 5560297253 ops/sec
+
+=== D) ATOMIC (C++17) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0162 segundos
+Throughput: 123735309 ops/sec
+
+=== ANÁLISIS ===
+1. NAIVE: Muestra pérdidas por race conditions
+2. MUTEX: Correcto pero con alta contención
+3. SHARDED: Mayor throughput, requiere reduce
+4. ATOMIC: Balance entre corrección y rendimiento
+
+=== RUN 5 ===
+Laboratorio 6 - Práctica 1: Race Conditions en Contador
+Configuración: 4 hilos, 500000 iteraciones por hilo
+
+>>> EJECUCIÓN 1 <<<
+
+=== A) NAIVE (Race Condition) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 1367235 (esperado: 2000000)
+Diferencia: 632765 (31.64%)
+Tiempo: 0.0005 segundos
+Throughput: 3804111101 ops/sec
+
+=== B) MUTEX (Protegido) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0694 segundos
+Throughput: 28833907 ops/sec
+
+=== C) SHARDED (Sin contención) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0004 segundos
+Throughput: 4636670500 ops/sec
+
+=== D) ATOMIC (C++17) ===
+Hilos: 4, Iteraciones: 500000
+Resultado: 2000000 (esperado: 2000000)
+Diferencia: 0 (0.00%)
+Tiempo: 0.0162 segundos
+Throughput: 123693388 ops/sec
+
+=== ANÁLISIS ===
+1. NAIVE: Muestra pérdidas por race conditions
+2. MUTEX: Correcto pero con alta contención
+3. SHARDED: Mayor throughput, requiere reduce
+4. ATOMIC: Balance entre corrección y rendimiento
+

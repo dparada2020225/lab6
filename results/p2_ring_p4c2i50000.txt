@@ -1,0 +1,131 @@
+# P2 Ring: 4P/2C, 50000 items/producer
+# Configuración: 4 2 50000
+# Fecha: Tue Sep  2 23:13:22 CST 2025
+# Sistema: Linux Denil 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+# CPU: 13th Gen Intel(R) Core(TM) i9-13900HX
+
+=== RUN 1 ===
+Laboratorio 6 - Práctica 2: Buffer Circular
+Configuración: 4 productores, 2 consumidores
+Items por productor: 50000 (total: 200000)
+Productor 2 terminó: 50000 elementos en 0.0571s
+Productor 1 terminó: 50000 elementos en 0.0591s
+Productor 3 terminó: 50000 elementos en 0.0600s
+Productor 0 terminó: 50000 elementos en 0.0610s
+Productores terminaron, esperando consumidores...
+Consumidor 1 terminó: 99299 elementos en 1.0613s
+Consumidor 0 terminó: 100701 elementos en 1.0613s
+
+=== RESULTADOS ===
+Tiempo total: 1.0618 segundos
+Elementos producidos: 200000
+Elementos consumidos: 200000
+Elementos perdidos: 0
+Elementos en cola: 0
+
+=== ESTADÍSTICAS DE BLOQUEO ===
+Productores esperaron (cola llena): 3059 veces
+Consumidores esperaron (cola vacía): 77 veces
+Throughput: 188362 elementos/segundo
+Corrección: CORRECTO
+
+=== RUN 2 ===
+Laboratorio 6 - Práctica 2: Buffer Circular
+Configuración: 4 productores, 2 consumidores
+Items por productor: 50000 (total: 200000)
+Productor 3 terminó: 50000 elementos en 0.0236s
+Productor 2 terminó: 50000 elementos en 0.0305s
+Productor 0 terminó: 50000 elementos en 0.0327s
+Productor 1 terminó: 50000 elementos en 0.0330s
+Productores terminaron, esperando consumidores...
+Consumidor 1 terminó: 92824 elementos en 1.0333s
+Consumidor 0 terminó: 107176 elementos en 1.0334s
+
+=== RESULTADOS ===
+Tiempo total: 1.0337 segundos
+Elementos producidos: 200000
+Elementos consumidos: 200000
+Elementos perdidos: 0
+Elementos en cola: 0
+
+=== ESTADÍSTICAS DE BLOQUEO ===
+Productores esperaron (cola llena): 1050 veces
+Consumidores esperaron (cola vacía): 92 veces
+Throughput: 193482 elementos/segundo
+Corrección: CORRECTO
+
+=== RUN 3 ===
+Laboratorio 6 - Práctica 2: Buffer Circular
+Configuración: 4 productores, 2 consumidores
+Items por productor: 50000 (total: 200000)
+Productor 2 terminó: 50000 elementos en 0.0452s
+Productor 3 terminó: 50000 elementos en 0.0491s
+Productor 1 terminó: 50000 elementos en 0.0530s
+Productor 0 terminó: 50000 elementos en 0.0542s
+Productores terminaron, esperando consumidores...
+Consumidor 0 terminó: 94726 elementos en 1.0543s
+Consumidor 1 terminó: 105274 elementos en 1.0543s
+
+=== RESULTADOS ===
+Tiempo total: 1.0546 segundos
+Elementos producidos: 200000
+Elementos consumidos: 200000
+Elementos perdidos: 0
+Elementos en cola: 0
+
+=== ESTADÍSTICAS DE BLOQUEO ===
+Productores esperaron (cola llena): 2263 veces
+Consumidores esperaron (cola vacía): 269 veces
+Throughput: 189649 elementos/segundo
+Corrección: CORRECTO
+
+=== RUN 4 ===
+Laboratorio 6 - Práctica 2: Buffer Circular
+Configuración: 4 productores, 2 consumidores
+Items por productor: 50000 (total: 200000)
+Productor 2 terminó: 50000 elementos en 0.0441s
+Productor 3 terminó: 50000 elementos en 0.0457s
+Productor 0 terminó: 50000 elementos en 0.0478s
+Productor 1 terminó: 50000 elementos en 0.0489s
+Productores terminaron, esperando consumidores...
+Consumidor 0 terminó: 97760 elementos en 1.0491s
+Consumidor 1 terminó: 102240 elementos en 1.0491s
+
+=== RESULTADOS ===
+Tiempo total: 1.0495 segundos
+Elementos producidos: 200000
+Elementos consumidos: 200000
+Elementos perdidos: 0
+Elementos en cola: 0
+
+=== ESTADÍSTICAS DE BLOQUEO ===
+Productores esperaron (cola llena): 1897 veces
+Consumidores esperaron (cola vacía): 112 veces
+Throughput: 190571 elementos/segundo
+Corrección: CORRECTO
+
+=== RUN 5 ===
+Laboratorio 6 - Práctica 2: Buffer Circular
+Configuración: 4 productores, 2 consumidores
+Items por productor: 50000 (total: 200000)
+Productor 0 terminó: 50000 elementos en 0.0463s
+Productor 1 terminó: 50000 elementos en 0.0473s
+Productor 3 terminó: 50000 elementos en 0.0475s
+Productor 2 terminó: 50000 elementos en 0.0486s
+Productores terminaron, esperando consumidores...
+Consumidor 1 terminó: 100000 elementos en 1.0486s
+Consumidor 0 terminó: 100000 elementos en 1.0487s
+
+=== RESULTADOS ===
+Tiempo total: 1.0493 segundos
+Elementos producidos: 200000
+Elementos consumidos: 200000
+Elementos perdidos: 0
+Elementos en cola: 0
+
+=== ESTADÍSTICAS DE BLOQUEO ===
+Productores esperaron (cola llena): 1798 veces
+Consumidores esperaron (cola vacía): 84 veces
+Throughput: 190605 elementos/segundo
+Corrección: CORRECTO
+
