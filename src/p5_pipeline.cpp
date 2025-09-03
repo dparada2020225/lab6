@@ -297,11 +297,15 @@ void print_statistics() {
     }
 }
 
-int main(int argc, char** argv) {
+int main(int, char**) {  // Parámetros no usados removidos
     printf("Laboratorio 6 - Práctica 5: Pipeline con Barreras\n");
     
     // Crear directorio de datos si no existe
-    system("mkdir -p data");
+    int mkdir_result = system("mkdir -p data");
+    if (mkdir_result != 0) {
+        // Si falla, continuar sin logging de archivos
+        printf("⚠️  No se pudo crear directorio data/, continuando sin log de archivos\n");
+    }
     
     // Inicializar barrera para 3 etapas
     if (pthread_barrier_init(&sync_barrier, nullptr, 3) != 0) {

@@ -210,8 +210,6 @@ void run_deadlock_demo() {
     double elapsed = 0;
     
     while (elapsed < 5.0) {
-        void* result1, *result2;
-        
         // Intentar join con timeout usando pthread_tryjoin_np si está disponible
         // Si no, usar método de polling simple
         usleep(100000);  // 100ms
